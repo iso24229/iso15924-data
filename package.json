@@ -1,0 +1,13 @@
+{
+  "name": "iso15924-data",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Auto-synced reference data for ISO 15924 (script codes)",
+  "scripts": {
+    "sync": "node scripts/sync.mjs"
+  },
+  "dependencies": {
+    "yaml": "^2.9.0"
+  }
+}

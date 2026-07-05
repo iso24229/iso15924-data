@@ -1,0 +1,42 @@
+= iso15924-data
+
+Automatically synchronized reference data for
+https://www.unicode.org/iso15924/[ISO 15924] (Codes for the representation of
+names of scripts).
+
+== Source
+
+* Fetched weekly from
+  https://www.unicode.org/iso15924/iso15924.txt.gz[the Unicode Consortium's
+  official machine-readable list].
+* The Unicode ToU permits redistribution; see
+  https://www.unicode.org/copyright.html[Unicode copyright / permission].
+
+== Layout
+
+----
+codes/
+  Latn.yaml
+  Cyrl.yaml
+  ...
+scripts/
+  sync.mjs                # the scraper
+last-checked-date.txt     # touched every weekly run, even when nothing changed
+----
+
+Each `codes/<Code>.yaml` file has the fields defined in
+`scripts/schema.mjs` (`code`, `name.en`, `name.fr`, `pva`, `age`,
+`dateIntroduced`).
+
+== Sync
+
+A GitHub Actions workflow (`.github/workflows/sync.yml`) runs weekly on
+Sunday 03:00 UTC. It:
+
+. Runs `node scripts/sync.mjs`.
+. Commits any data changes.
+. *Always* updates `last-checked-date.txt` (the keep-alive heartbeat) so
+  GitHub does not disable the scheduled workflow after 60 days of inactivity.
+. Tags `data-YYYYMMDD` if anything changed.
+
+The workflow can be triggered manually from the Actions tab.
