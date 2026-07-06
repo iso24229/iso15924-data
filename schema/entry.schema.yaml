@@ -1,0 +1,45 @@
+# JSON Schema for ISO 15924 script code entries.
+# Sourced from the Unicode Consortium.
+
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://iso24229.org/schemas/iso15924/entry.schema.yaml
+title: ISO 15924 entry
+type: object
+additionalProperties: false
+required: [code, number, name, age, dateIntroduced]
+properties:
+  code:
+    type: string
+    pattern: ^[A-Z][a-z]{3}$
+    description: ISO 15924 alpha-4 code (title case, e.g. `Latn`, `Hani`).
+  number:
+    type: integer
+    minimum: 1
+    maximum: 999
+    description: ISO 15924 numeric code.
+  name:
+    type: object
+    additionalProperties: false
+    required: [en, fr]
+    properties:
+      en:
+        type: string
+        minLength: 1
+      fr:
+        type: string
+        minLength: 1
+  pva:
+    type:
+      - string
+      - 'null'
+    description: Property Value Alias (Unicode).
+  age:
+    type:
+      - string
+      - 'null'
+    description: Unicode version in which the script was introduced (e.g. `1.1`, `15.0`).
+  dateIntroduced:
+    type:
+      - string
+      - 'null'
+    description: ISO 8601 date the script was added to the standard.
