@@ -1,12 +1,22 @@
 {
-  "name": "iso15924-data",
-  "private": true,
+  "name": "@iso24229/iso15924-data",
   "type": "module",
   "version": "0.1.0",
   "description": "Auto-synced reference data for ISO 15924 (script codes)",
   "scripts": {
     "sync": "node scripts/sync.mjs",
     "validate": "node scripts/validate.mjs"
+  },
+  "files": [
+    "codes",
+    "schema",
+    "manifest.yaml",
+    "last-checked-date.txt",
+    "README.adoc"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
     "yaml": "^2.9.0"
