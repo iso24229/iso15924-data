@@ -2,7 +2,8 @@
   "name": "@iso24229/iso15924-data",
   "type": "module",
   "version": "0.2.0",
-  "description": "Auto-synced reference data for ISO 15924 (script codes)",
+"description": "Auto-synced reference data for ISO 15924 (script codes)",
+  "repository": {"type": "git", "url": "https://github.com/iso24229/iso15924-data.git"},
   "main": "./index.mjs",
   "types": "./index.d.ts",
   "exports": {
