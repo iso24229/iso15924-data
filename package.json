@@ -1,7 +1,7 @@
 {
   "name": "@iso24229/iso15924-data",
   "type": "module",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Auto-synced reference data for ISO 15924 (script codes)",
   "repository": {
     "type": "git",
